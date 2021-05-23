@@ -1,0 +1,28 @@
+.footer {
+  background-color: #7596C2;
+  padding: 1rem;
+}
+
+.footer .footer-cols {
+  display: -ms-grid;
+  display: grid;
+  color: #f1f1f1;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.footer .footer-cols ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .footer .footer-cols {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+/*# sourceMappingURL=footer.component.css.map */

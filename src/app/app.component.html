@@ -1,0 +1,17 @@
+<div [class]="themeService.presentTheme$ | async" class="theme">
+    <body>
+        <header class="head">
+            <app-navbar></app-navbar> 
+        </header>
+        
+        <main>
+            <router-outlet></router-outlet> 
+            <app-scroll-to-top></app-scroll-to-top>
+        </main>
+       <footer> 
+           <app-footer></app-footer>
+       </footer>
+    </body>
+</div>
+
+  

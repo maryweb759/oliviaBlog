@@ -1,0 +1,56 @@
+
+
+<ng-container *ngIf="post"> 
+    <div [hidden]="!editing"> 
+      <div class="container">
+        <div class="text-input">
+            <h5 class="title-text">Title</h5>
+            <input type="text" placeholder="Post title" [(ngModel)]="post.title" name="title">
+        </div>
+        <div class="text-input">
+            <h5 class="title-text">Content</h5>
+            <textarea  placeholder="Post content" [(ngModel)]="post.content" name="content" rows="10"></textarea> 
+        </div>
+        <div class="text-right" >
+          <button  (click)="updatePost()" *ngIf="isAdmin" class="read-btn"> save </button>
+          <button  (click)="editing=false" *ngIf="editing || isAdmin" class="cancel-btn">Cancel</button>
+        </div> 
+
+      
+       
+    </div> 
+  </div>
+
+    <div [hidden]="editing"> 
+        <div class="container"> 
+                <h3 class="card-title title-text text-center text-capitalize" >{{ post.title }} </h3>
+              <div class="img"> 
+                <img [src]="post.image" class="img-thumbnail"  alt="">
+              </div> 
+              <div class="card-body">
+                <p class="text-right font-weight-light text-capitalize">posted by {{ post.author }} &bull;</p>
+                <p class="card-text parag-text"> {{ post.content  }} </p>
+                <div class="text-right" *ngIf="auth.currentUserId === post.authorId"> 
+                    <button *ngIf="isAdmin" class="btn-delete" (click)="delete()">delete</button>
+                    <button *ngIf="isAdmin" class="read-btn" (click)="editing=true">edit</button>
+                  </div>
+              </div>
+              <div class="text-input">
+                <h5 class="title-text">Name</h5>
+                <input type="text" placeholder="Post title" [(ngModel)]="title" name="name">
+              </div> 
+              <div class="text-input">
+                <h5 class="title-text">Email</h5>
+                <input type="text" placeholder="Post title" [(ngModel)]="title" name="email">
+              </div>
+              <div class="text-input">
+                <h5 class="title-text">Comment</h5>
+                <textarea  placeholder="Post content" [(ngModel)]="content" name="comment..." rows="10"></textarea> 
+                <div class="text-right">
+                  <button class="read-btn"> Send </button> 
+                </div>
+              </div> 
+            </div>
+   
+    </div>
+</ng-container>

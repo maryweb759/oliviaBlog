@@ -1,0 +1,156 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+.theme-light {
+    // --primary: #2577c1;
+     --primary : #f1f1f1;
+     --secondary: #f1f1f1;
+     --primary-text-color: #1d1d1d;
+     --seconedry-text-color:#304E65 ;
+     --form-color:#1D1D1D;
+     --form-bg-color: #fff;
+     --color-dull: #767676;
+     --nav-color: #7596C2;
+   }
+   .theme-dark {
+     --primary: #1d1d1d;
+     --secondary: #262629;
+     --primary-text-color: #f1f1f1;
+     --seconedry-text-color:#f1f1f1 ;
+     --form-color: #f1f1f1;
+     --form-bg-color: rgba(165, 172, 181, 0.15);
+     --color-dull: #f5f5f5;  
+     --nav-color: #7596C2;
+   }  
+   .theme {
+    margin:0;
+    padding: 0;
+   }
+   body { 
+     margin:0;
+     padding: 0;
+     height: 100vh;
+     width: 100%;
+     background-color:var(--primary) ;
+   }
+   img { width: 100%;} 
+   /****** gennerale style *********/ 
+   .title-text {
+      color: var(--primary-text-color);  
+      outline: none;
+   } 
+   .parag-text {
+    color: var(--seconedry-text-color);
+   } 
+   @mixin button {
+    font-weight: 500; 
+    margin: 1rem ; 
+    background-color: #3B5291;
+    border: 1px solid #15A8BD;
+    outline: none;
+    text-transform: capitalize;
+    border-radius: 8px;
+    padding: 5px 18px;
+    color: #f1f1f1;  
+   }
+   .btn-delete {
+    @include button;
+      background-color: #D42746;
+      border: 1px solid #DC1F1F;
+   }
+   .read-btn {
+    @include button
+} 
+.cancel-btn {
+  @include button;
+  background-color: #f1f1f1;
+  border: 1px solid #15A8BD;
+  color: #3B5291;
+} 
+/**     detail component     **/
+.card-title  {
+  padding: 1rem;
+ } 
+ .text-input {
+     width: 100%;
+     margin: auto;
+     min-width: 150px;
+     max-width: 600px;
+     .title-text {
+       padding: 1rem;
+     }
+     input[type=text],textarea  {
+       width: 90%;
+       color: var(--form-color);
+        padding: 1rem; 
+        border-radius: 7px;
+        border: 2px solid #15A8BD;
+        background-color: var(--form-bg-color);
+     } 
+    
+   } 
+   
+   main, header, footer{
+    color: var( --primary-text-color);
+    background-color: var(--primary);
+  }
+   /* navbar style */
+   .theme-switcher-wrap-container {
+     background-color: transparent; 
+     margin:  auto;
+     padding: 14px;
+   } 
+   .theme-switcher-wrap {
+     background-color: #383535; 
+     width: 40px;
+     height: 15px; 
+     border-radius: 50px; 
+    margin: 0 auto;
+    
+    position: relative;
+    .theme-switcher {
+     position: absolute;
+     margin-left: -1px;
+     bottom:-4px;
+     height: 22px ; width: 22px;
+     display: block;
+     background-color :#7596C2;
+     border-radius: 50%;
+     border:none;
+     outline:none;
+     
+    } 
+    
+   } 
+  
+   .theme-switcher.active {
+    margin-left: 20px;
+   } 
+   /*** post list container                 **/
+    .container-post-list {
+    background-color: var(--primary);
+    display: flex; 
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+    padding: 1rem 0rem;
+   } 
+   .container-card-list {
+    background-color: var(--secondary); 
+    max-width:250px; 
+    box-shadow: 1px 1px 20px -1px rgba(127, 168, 222, 0.54);
+   margin: 10px 0;
+    .img {
+      height: 180px;
+      width:100%; 
+      overflow: hidden;
+    }  
+    .card-body {
+      padding-top: 0;
+      padding-bottom: 0; 
+      cursor: pointer;
+    }
+   } 
+
+   @media only screen and (min-width: 1000px) { 
+    
+   }

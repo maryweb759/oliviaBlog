@@ -1,0 +1,78 @@
+<!-- dark mood -->
+<div class="theme-switcher-wrap-container">
+  <div class="theme-switcher-wrap">
+    <!--   light theme icon -->
+        <button class="theme-switcher"
+          *ngIf="
+            (themeService.presentTheme$ | async) == 'theme-light';
+            else moonTemplate"
+          (click)="themeService.changeTheme('theme-dark')" >  
+        
+        </button>
+        <ng-template #moonTemplate>
+          <!--   dark theme icon -->
+          <button class="theme-switcher active"
+            (click)="themeService.changeTheme('theme-light')"
+          >
+          
+          </button>
+        </ng-template>
+      </div>
+</div>
+
+<!-- navbar  -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand nav-link-custom active " routerLink="/blog" routerLinkActive="active">OliviaBlog</a>
+    <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " [class.show]="isOpen" id="navbarNav" >
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link nav-link-custom active"  routerLink="/blog" routerLinkActive="active" > Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-custom active"  *ngIf="isAdmin" routerLink="/dashboard" routerLinkActive="active" > Write a post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-custom active" routerLink="/about" routerLinkActive="active" > About</a>
+        </li>
+        <li class="nav-item">  
+          <div *ngIf="auth.afAuth.authState | async as user; else showLogin"> 
+            <span> Hello {{ user.displayName }}</span> 
+            <button (click)="auth.logout()" class="btn btn-danger"> logout </button>
+          </div>       
+          <ng-template #showLogin>   
+            <button (click)="auth.login()" class="btn btn-primary"> logoin with google 
+              <svg width="15" height="18" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0)">
+              <path d="M22 12.8969C22 19.5297 17.6316 24.25 11.1803 24.25C4.99508 24.25 0 19.0562 0 12.625C0 6.19375 4.99508 1 11.1803 1C14.1918 1 16.7254 2.14844 18.6775 4.04219L15.6344 7.08438C11.6537 3.09063 4.25123 6.09063 4.25123 12.625C4.25123 16.6797 7.36639 19.9656 11.1803 19.9656C15.6074 19.9656 17.2664 16.6656 17.5279 14.9547H11.1803V10.9562H21.8242C21.9279 11.5516 22 12.1234 22 12.8969Z" fill="#F1F1F1"/>
+              </g>
+              <defs>
+              <clipPath id="clip0">
+              <rect width="24" height="25" fill="white"/>
+              </clipPath>
+              </defs>
+              </svg>
+               </button>
+           </ng-template>       
+           </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav> 
+<!-- header  --> 
+<div>
+  <div class="showcase"> 
+    <div class="showcase-content">
+      <h1> welcome to our blog</h1> 
+    <p>We post everything new about all what you are interested in lorem ipsum dolor sit amet all what you are interested in lorem ipsum dolor sit amet.
+       post everything new about all what you are interested in lorem ipsum dolor sit amet all what you are interested in lorem ipsum dolor sit amet.
+    </p>
+   <button class="read-btn">read our articles</button>
+    </div>
+</div>
+</div>
+ 
